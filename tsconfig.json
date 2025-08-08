@@ -27,13 +27,7 @@
       "@utils/*": ["./src/utils/*"],
       "@validate/*": ["./src/validate/*"]
     },
-    "moduleResolution": "Node",
-    "typeRoots": [
-      "./node_modules/@types"
-    ],
-    "types": [
-      "node-cron"
-    ]
+    "moduleResolution": "Node"
   },
   "exclude": [
     "node_modules",
