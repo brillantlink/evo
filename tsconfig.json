@@ -27,7 +27,8 @@
       "@utils/*": ["./src/utils/*"],
       "@validate/*": ["./src/validate/*"]
     },
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "typeRoots": ["node_modules/@types"]
   },
   "exclude": ["node_modules", "./test", "./dist", "./prisma"],
   "include": [
