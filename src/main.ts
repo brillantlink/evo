@@ -148,7 +148,13 @@ async function bootstrap() {
     Sentry.setupExpressErrorHandler(app);
   }
 
-  server.listen(httpServer.PORT, () => logger.log(httpServer.TYPE.toUpperCase() + ' - ON: ' + httpServer.PORT));
+  // === CAMBIO CLAVE: Usa las variables de entorno para el puerto y host ===
+  const port = parseInt(process.env.PORT as string, 10) || 8080;
+  const host = process.env.HOST || '0.0.0.0';
+
+  server.listen(port, host, () => {
+    logger.log(httpServer.TYPE.toUpperCase() + ' - ON: ' + port);
+  });
 
   initWA();
 
