@@ -28,7 +28,6 @@ primary_region = 'iad'
   DATABASE_SAVE_DATA_HISTORIC = true
 
   CACHE_REDIS_ENABLED = true
-  CACHE_REDIS_SAVE_INSTANCES = true
 
 [http_service]
   internal_port = 8080
