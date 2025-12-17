@@ -1,23 +1,44 @@
-# fly.toml app configuration file generated for evo-brillant on 2025-12-17T03:14:14Z
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
-
 app = 'evo-brillant'
 primary_region = 'iad'
 
 [build]
 
+[env]
+  PORT = 8080
+  SERVER_PORT = 8080
+  HOST = "0.0.0.0"
+  NODE_ENV = "production"
+  SERVER_URL = "https://evo-brillant.fly.dev"
+
+  AUTHENTICATION_EXPOSE_IN_FETCH_INSTANCES = true
+  AUTHENTICATION_TYPE = "jwt"
+  AUTHENTICATION_JWT_EXPIRES_IN = 3600
+  CORS_ORIGIN = "*"
+
+  DATABASE_ENABLED = true
+  DATABASE_PROVIDER = "postgresql"
+  DATABASE_CONNECTION_CLIENT_NAME = "evo"
+
+  DATABASE_SAVE_DATA_INSTANCE = true
+  DATABASE_SAVE_DATA_NEW_MESSAGE = true
+  DATABASE_SAVE_MESSAGE_UPDATE = true
+  DATABASE_SAVE_DATA_CONTACTS = true
+  DATABASE_SAVE_DATA_CHATS = true
+  DATABASE_SAVE_DATA_LABELS = true
+  DATABASE_SAVE_DATA_HISTORIC = true
+
+  CACHE_REDIS_ENABLED = true
+  CACHE_REDIS_SAVE_INSTANCES = true
+
 [http_service]
   internal_port = 8080
   force_https = true
-  auto_stop_machines = 'stop'
+  auto_stop_machines = true
   auto_start_machines = true
-  min_machines_running = 0
+  min_machines_running = 1
   processes = ['app']
 
 [[vm]]
-  memory = '1gb'
   cpu_kind = 'shared'
   cpus = 1
-  memory_mb = 1024
+  memory_mb = 512
