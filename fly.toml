@@ -1,5 +1,5 @@
 app = 'evo-brillant'
-primary_region = 'iad'
+swap_size_mb = 128
 
 [build]
 
@@ -25,7 +25,7 @@ primary_region = 'iad'
   internal_port = 8080
   force_https = true
   auto_stop_machines = false
-  auto_start_machines = true
+  auto_start_machines = false
   min_machines_running = 1
   processes = ['app']
 
